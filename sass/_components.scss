@@ -256,13 +256,23 @@
   cursor: pointer;
   transition: all 0.2s;
 
-  &:hover {
-    color: var(--color-grey-dark-1);
-  }
-
   &:focus {
     outline: none;
-    animation: pulsate 1s infinite;
+    animation-name: pulsate;
+    animation-duration: infinite;
+  }
+
+  & span {
+    margin-left: 3px;
+    transition: margin-left 0.2s;
+  }
+
+  &:hover {
+    color: var(--color-grey-dark-1);
+    //this is nice. because in normal css we cant change the color and animate the span at the same time
+    span {
+      margin-left: 8px;
+    }
   }
 }
 
@@ -353,5 +363,70 @@
     &:not(:last-child) {
       margin-right: -1.5rem;
     }
+  }
+}
+
+/////////////////////////ReViews
+
+.review {
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden;
+
+  &__text {
+    margin-bottom: 2rem;
+    z-index: 10;
+    //z-index only works when you set the position property
+    position: relative;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+  }
+
+  &__photo {
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    margin-right: 2rem;
+  }
+
+  &__user-box {
+    margin-right: auto;
+  }
+
+  &__user-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  &__user-date {
+    font-family: 1rem;
+    color: var(--color-grey-dark-3);
+  }
+
+  &__rating {
+    color: var(--color-primary);
+    font-size: 2.2rem;
+    font-weight: 300;
+  }
+
+  &::before {
+    content: '\201C';
+    position: absolute;
+    top: -2.75rem;
+    left: -1rem;
+    //line-height actually reduces height generally
+    line-height: 1;
+    font-size: 20rem;
+    color: var(--color-grey-light-2);
+    font-family: sans-serif;
+    z-index: 1;
   }
 }
