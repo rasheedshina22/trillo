@@ -8,6 +8,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  @media only screen and(max-width:$bp-small) {
+    order: 1;
+    flex-basis: 100%;
+  }
+
   &__input {
     font-family: inherit;
     font-size: inherit;
@@ -20,6 +25,9 @@
     transition: all 0.2s;
     //dont really get why we use this
     margin-right: -3.25rem;
+    @media only screen and(max-width:$bp-small) {
+      border-radius: 0;
+    }
 
     &:focus {
       outline: none;
@@ -112,11 +120,24 @@
   font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem;
+
+  @media only screen and(max-width:$bp-medium) {
+    display: flex;
+    margin: 0;
+  }
   &__item {
     position: relative;
 
     &:not(:last-child) {
       margin-bottom: 5rem;
+
+      @media only screen and(max-width:$bp-medium) {
+        margin-bottom: 0;
+      }
+    }
+
+    @media only screen and(max-width:$bp-medium) {
+      flex: 1;
     }
   }
 
@@ -154,6 +175,15 @@
     align-items: center;
     position: relative;
     z-index: 10;
+
+    @media only screen and(max-width:$bp-medium) {
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    @media only screen and(max-width:$bp-medium) {
+      flex-direction: column;
+    }
   }
 
   &__icon {
@@ -162,6 +192,13 @@
     margin-right: 2rem;
     // currentColor is the color of the element or that of the parent
     fill: currentColor;
+
+    @media only screen and(max-width:$bp-medium) {
+      margin-right: 0;
+      margin-bottom: 0.7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -171,6 +208,10 @@
   color: #fff;
   text-align: center;
   padding: 2.5rem;
+
+  @media only screen and(max-width:$bp-medium) {
+    display: none;
+  }
 }
 
 //////gallery
@@ -194,6 +235,10 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and(max-width:$bp-small) {
+      font-size: 1.5rem;
+    }
   }
 
   &__stars {
@@ -230,17 +275,28 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @media only screen and(max-width:$bp-small) {
+      padding: 0 1.5rem;
+    }
   }
 
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 200;
     margin-bottom: -3px;
+
+    @media only screen and(max-width:$bp-small) {
+      font-size: 1.8rem;
+    }
   }
 
   &__rating-count {
     font-size: 0.8rem;
     text-transform: uppercase;
+    @media only screen and(max-width:$bp-small) {
+      text-align: center;
+    }
   }
 }
 
@@ -297,6 +353,9 @@
 
 .paragraph:not(:last-of-type) {
   margin-bottom: 2rem;
+  @media only screen and(max-width:$bp-medium) {
+    margin-bottom: 1rem;
+  }
 }
 
 ///list
@@ -306,9 +365,12 @@
   padding: 3rem;
   border-top: var(--line);
   border-bottom: var(--line);
-
   display: flex;
   flex-wrap: wrap;
+
+  @media only screen and(max-width:$bp-medium) {
+    padding: 1rem;
+  }
 
   &__item {
     //this is a nifty little trick to create two columns of the list items
@@ -350,6 +412,10 @@
     margin-right: auto;
   }
 
+  &__friends {
+    display: flex;
+  }
+
   &__photo {
     box-sizing: content-box;
     height: 4rem;
@@ -357,7 +423,7 @@
     border-radius: 50%;
     border: 3px solid #fff;
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -371,6 +437,11 @@
   margin-bottom: 3.5rem;
   position: relative;
   overflow: hidden;
+
+  @media only screen and(max-width:$bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 
   &__text {
     margin-bottom: 2rem;
@@ -432,6 +503,10 @@
   padding: 3.5rem 0;
   text-align: center;
   background-color: #fff;
+
+  @media only screen and(max-width:$bp-medium) {
+    padding: 2.5rem 0;
+  }
 
   &__book-now {
     font-size: 2rem;
